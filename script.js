@@ -1,6 +1,5 @@
 function getComputerChoice(){
-    const arr = ["rock", "paper", "scissors"];
-    return arr[(Math.floor(Math.random() * arr.length))];
+    return ["rock", "paper", "scissors"][(Math.floor(Math.random() * arr.length))];
 }
 
 function playRound(playerSelection, computerSelection){
@@ -37,10 +36,11 @@ function playRound(playerSelection, computerSelection){
 
 function game(){
     for(let i = 0; i < 5; i++){
-        return playRound(playerSelection, computerSelection);
+        return document.getElementsByClassName("btn").addEventListener("click", playRound);
     }
 }
-const playerSelection = prompt("Please enter your name ");
-const computerSelection = getComputerChoice();
 
-console.log(game());
+const playerSelection = document.getElementsByClassName('btn').addEventListener("click")
+console.log(playerSelection);
+const computerSelection = getComputerChoice();
+ 
