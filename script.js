@@ -1,8 +1,7 @@
 let playerScore = 0;
 let computerScore = 0;
 function getComputerChoice(){
-    const arr = ["rock", "paper", "scissors"];
-    return arr[(Math.floor(Math.random() * arr.length))];
+    return ["rock", "paper", "scissors"][(Math.floor(Math.random() * arr.length))];
 }
 
 function tie(){
@@ -36,6 +35,7 @@ function playRound(player, computer){
     score();
 }
 
+
 function showChoice(playerChoice, computerSelection){
     switch(playerChoice){
         case 'rock':
@@ -46,6 +46,7 @@ function showChoice(playerChoice, computerSelection){
             break;
         case 'scissors':
             document.getElementById("player").innerHTML = '✌';
+
     }
     switch(computerSelection){
         case 'rock':
@@ -73,3 +74,4 @@ const scissorsBtn = document.getElementById('scissors');
 rockBtn.addEventListener('click', () => generate('rock'));
 paperBtn.addEventListener('click', () => generate('paper'));
 scissorsBtn.addEventListener('click', () => generate('scissors'));
+
