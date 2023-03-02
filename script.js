@@ -1,46 +1,77 @@
+let playerScore = 0;
+let computerScore = 0;
 function getComputerChoice(){
     return ["rock", "paper", "scissors"][(Math.floor(Math.random() * arr.length))];
 }
 
-function playRound(playerSelection, computerSelection){
-    if(playerSelection === "rock"){
-        if(computerSelection === "rock"){
-            return "Its a Tie!"
-        }else if(computerSelection === "paper"){
-            return "You Lose!"
-        }else if(computerSelection === "scissors"){
-            return "You win!"
-        }
-    }
+function tie(){
 
-    if(playerSelection === "paper"){
-        if(computerSelection === "paper"){
-            return "Its a Tie!"
-        }else if(computerSelection === "scissors"){
-            return "You Lose!"
-        }else if(computerSelection === "rock"){
-            return "You win!"
-        }
-    }
+}
 
-    if(playerSelection === "scissors"){
-        if(computerSelection === "scissors"){
-            return "Its a Tie!"
-        }else if(computerSelection === "rock"){
-            return "You Lose!"
-        }else if(computerSelection === "paper"){
-            return "You win!"
-        }
+function score(){
+    document.getElementById("computer-result").innerHTML = computerScore;
+    document.getElementById("player-result").innerHTML = playerScore;
+}
+
+function playRound(player, computer){
+    if(player === computer){
+        tie();
+    }
+    if(player === 'rock' && computer === 'scissors'){
+        playerScore++;
+    }else if(player === 'paper' && computer === 'rock'){
+        playerScore++;
+    }else if(player === 'scissors' && computer === 'paper'){
+        playerScore++;
+    }  
+
+    if(computer === 'rock' && player === 'scissors'){
+        computerScore++;
+    }else if(computer === 'paper' && player === 'rock'){
+        computerScore++;
+    }else if(computer === 'scissors' && player === 'paper'){
+        computerScore++;
+    }
+    score();
+}
+
+
+function showChoice(playerChoice, computerSelection){
+    switch(playerChoice){
+        case 'rock':
+            document.getElementById("player").innerHTML = '✊';
+            break;
+        case 'paper':
+            document.getElementById("player").innerHTML = '🖐️';
+            break;
+        case 'scissors':
+            document.getElementById("player").innerHTML = '✌';
+
+    }
+    switch(computerSelection){
+        case 'rock':
+            document.getElementById("computer").innerHTML = '✊';
+            break;
+        case 'paper':
+            document.getElementById("computer").innerHTML = '🖐️';
+            break;
+        case 'scissors':
+            document.getElementById("computer").innerHTML = '✌';
     }
 }
 
-function game(){
-    for(let i = 0; i < 5; i++){
-        return document.getElementsByClassName("btn").addEventListener("click", playRound);
-    }
+function generate(playerChoice){
+    const computerSelection = getComputerChoice();
+    playRound(playerChoice, computerSelection);
+    showChoice(playerChoice, computerSelection)
 }
 
-const playerSelection = document.getElementsByClassName('btn').addEventListener("click")
-console.log(playerSelection);
-const computerSelection = getComputerChoice();
- 
+
+const rockBtn = document.getElementById('rock');
+const paperBtn = document.getElementById('paper'); 
+const scissorsBtn = document.getElementById('scissors');
+
+rockBtn.addEventListener('click', () => generate('rock'));
+paperBtn.addEventListener('click', () => generate('paper'));
+scissorsBtn.addEventListener('click', () => generate('scissors'));
+

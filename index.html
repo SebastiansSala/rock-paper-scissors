@@ -6,13 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
-    <script type = "module" src = "script.js"></script>
+
 </head>
-<body>
-    <div class="container">
-        <button class="btn">rock</button>
-        <button class="btn">paper</button>
-        <button class="btn">scissors</button>
-    </div>
+<body class = "body">
+    <header class="header">
+        <h1>Rock-Paper-Scissors</h1>
+    </header>
+    <main class="main">
+        <div class="result-container">
+            <div>
+                <h1 class="result-text">Player</h1>
+                <p id="player-result">0</p>
+            </div>
+            <div>
+                <h1 class="result-text">Computer</h1>
+                <p id="computer-result">0</p>
+            </div>
+        </div>
+
+        <div class="img-container">
+            <div class="img-result">
+                <p id="player">?</p>
+        	    <p id="computer">?</p>
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <button id="rock" class="btn">✊</button>
+            <button id="paper" class="btn">🖐️</button>
+            <button id="scissors" class="btn">✌</button>
+        </div>
+        <div class="winner">
+
+        </div>
+    </main>
+    <footer class="footer">
+
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
